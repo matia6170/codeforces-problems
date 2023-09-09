@@ -1,22 +1,27 @@
-#include <stdio.h>
+#include <iostream>
+#include <string>
 int main() {
     using namespace std;
 
-    unsigned long long int left = 0, right = 10e18, mid = right / 2;
+    unsigned long long int left = 1, right = 1000000000000000000, mid;
 
-    char input[10];
+    string input;
 
-    while (true) {
-        printf("%llu\n", mid);
-        fflush(stdout);
-        scanf("\n%s", input);
-        if (input[0] == 'C') return 0;
-        if (input[0] == 'H') {
-            left = mid;
-            mid += (right - mid) / 2;
+    while (left <= right) {
+        mid = (left+right)/2;
+
+
+        cout << mid << endl;
+        cin >> input;
+
+        
+
+        if (input[0] == 'C') {
+             break;
+        }else if (input[0] == 'H') {
+            left = mid+1;
         } else if (input[0] == 'L') {
-            right = mid;
-            mid -= (mid - left) / 2;
+            right = mid-1;
         }
     }
 }

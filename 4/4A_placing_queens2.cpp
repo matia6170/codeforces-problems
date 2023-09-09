@@ -4,10 +4,8 @@
 
 using namespace std;
 
-int k = 5, n = 8, m = 8;
+int k = 2, n = 3, m = 4;
 int qCnt = k, possibleBoards = 0;
-
-vector<vector<bool> > vvb;
 
 void printBoard(vector<vector<bool> > &vvb) {
     for (int i = 0; i < m; i++) {
@@ -33,30 +31,33 @@ bool canPlace(vector<vector<bool> > &vvb, int row, int col) {
 
     return ret;
 }
-bool solveNQueens(vector<vector<bool> > &vvb, int col) {
-    if (col >= n || qCnt == 0) {
-        printBoard(vvb);
+bool solveNQueens(vector<vector<bool> > &vvb, int c, int qCnt) {
+    if (c >= n || qCnt <= 0) {
+        // printBoard(vvb);
         possibleBoards++;
-        return true;  // end of recursion
 
+        return false;  // end of recursion
     }
     for (int row = 0; row < m; row++) {
-        if (canPlace(vvb, row, col)) {
-            vvb[row][col] = true;
-            qCnt--;
-            if (solveNQueens(vvb, col + 1)) {
-                return true;
+        // add for loop for columsn
+        for (int col = c; col <= n - qCnt; col++) {
+            if (canPlace(vvb, row, col)) {
+                vvb[row][col] = true;
 
-
+                if (solveNQueens(vvb, col + 1, qCnt - 1)) {
+                    return true;
+                }
+                vvb[row][col] = false;
             }
-            vvb[row][col] = false;
-            qCnt++;
         }
     }
     return false;
 }
 
 int main() {
+    vector<vector<bool> > vvb;
+    scanf("%d %d %d", &k, &n, &m);
+
     for (int i = 0; i < m; i++) {
         vector<bool> vb;
         for (int j = 0; j < n; j++) {
@@ -65,6 +66,8 @@ int main() {
         vvb.push_back(vb);
     }
 
-    solveNQueens(vvb, 0);
-    printf("Possible boards: %d\n", possibleBoards);
+    
+
+    solveNQueens(vvb, 0, k);
+    printf("%d\n", possibleBoards);
 }
