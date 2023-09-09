@@ -1,21 +1,14 @@
 #include <iostream>
 #include <vector>
 
-
-
 int main() {
-    std::vector<int> myVector = {1, 2, 2, 3, 4, 2, 5, 4};
-
-    int numberToRemove = 4; // Replace with the number you want to remove
-
-    // Use std::remove to move the elements to be removed to the end of the vector
-    myVector.erase(std::remove(myVector.begin(), myVector.end(), numberToRemove), myVector.end());
-
-    // Print the updated vector
-    for (int value : myVector) {
-        std::cout << value << " ";
+    int x = 4;
+    int i;
+    for (i = 1; i < 3; i++) {
+        x *= (i +1);
+        x /= 4;
     }
-    std::cout << std::endl;
+    printf("x = %d", x);
 
     return 0;
 }
