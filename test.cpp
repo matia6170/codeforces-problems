@@ -1,21 +1,51 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
+using namespace std;
 
+typedef long long LL;
 
-int main() {
-    std::vector<int> myVector = {1, 2, 2, 3, 4, 2, 5, 4};
+int main()
 
-    int numberToRemove = 4; // Replace with the number you want to remove
+{
+    int t;
 
-    // Use std::remove to move the elements to be removed to the end of the vector
-    myVector.erase(std::remove(myVector.begin(), myVector.end(), numberToRemove), myVector.end());
+    cin >> t;
 
-    // Print the updated vector
-    for (int value : myVector) {
-        std::cout << value << " ";
+    while (t--) {
+        LL hc, dc, hm, dm, k, w, a;
+
+        cin >> hc >> dc;
+
+        cin >> hm >> dm;
+
+        cin >> k >> w >> a;
+
+        int i = 0;
+
+        for (i = 0; i <= k; i++) {
+            LL midhc = hc + i * a;
+
+            LL middc = dc + (k - i) * w;
+
+            LL col1 = midhc / dm;
+
+            if (midhc % dm != 0) col1++;
+
+            LL col2 = hm / middc;
+
+            if (hm % middc) col2++;
+
+            if (col1 >= col2) break;
+        }
+
+        if (i == k + 1)
+            cout << "NO";
+
+        else
+            cout << "YES";
+
+        if (t) cout << endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
