@@ -66,5 +66,8 @@
     "map": "cpp",
     "unordered_set": "cpp",
     "numeric": "cpp"
-  }
+  },
+  "stm32-for-vscode.openOCDPath": false,
+  "stm32-for-vscode.makePath": false,
+  "stm32-for-vscode.armToolchainPath": false
 }
