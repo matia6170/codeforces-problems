@@ -24,7 +24,7 @@ int main() {
         edges[n1]++;
         edges[n2]++;
     }
-    printf("%s\n",identifyTopology(edges, n));
+    printf("%s\n",identifyTopology(edges, n).c_str());
 
     
 }
