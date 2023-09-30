@@ -1,6 +1,7 @@
 /*
  * This code uses union find to solve the problem.
  * https://www.youtube.com/watch?v=ayW5B2W9hfo
+ * https://codeforces.com/group/vXcw3y5Yhn/contest/401085/problem/A
  */
 #include <iostream>
 #include <map>
@@ -70,7 +71,7 @@ int main() {
             count++;
         }
     }
-    
+
     //print the number of connected components
     printf("%d\n", count);
     
