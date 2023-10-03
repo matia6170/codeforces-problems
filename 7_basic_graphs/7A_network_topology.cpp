@@ -30,4 +30,4 @@ int main() {
         edges[n2 - 1]++;
     }
     printf("%s\n", identifyTopology(edges, n).c_str());
-2}
+}
